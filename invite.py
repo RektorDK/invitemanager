@@ -1,7 +1,3 @@
-'''
-Invite Manager Bot Written in discord.py 
-'''
-
 import discord
 client=discord.Client()
 
@@ -12,7 +8,7 @@ async def on_ready():
 	global role_list
 	print('Logged in as: '+client.user.name)
 	print('Bot ID: '+client.user.id)
-	await client.change_presence(game=discord.Game(name='TZ!invites - List your invites')) '''Paste Your Status Here'''
+	await client.change_presence(game=discord.Game(name='TZ!invites - Hej!'))
 	print('------\n')
 	for server in client.servers:
 		role_list=dict((role.name,role) for role in server.roles)
@@ -37,7 +33,7 @@ async def on_member_join(new_member):
 
 @client.event
 async def on_message(message):
-	if message.content=='TZ!invites': '''Here is the command section'''
+	if message.content=='TZ!invites':
 		total_uses=0
 		embed=discord.Embed(title='__Invites from {}__'.format(message.author.name))
 		invites = await client.invites_from(message.server)
@@ -51,4 +47,4 @@ async def on_message(message):
 		await client.send_message(message.channel,embed=embed)
 
 
-client.run('NjYxMDk2MTA0MzI2MzMyNDE2.XgmkbQ.QmghTv5fUE28HlhjmUVeTuvCgW8') '''Copy My Token'''
+client.run('NjcyMDkxNTgyMzkyMTcyNTY2.XjGcFA.JWkJ3K2v60A-OUTavD2NR8yXvjY')
